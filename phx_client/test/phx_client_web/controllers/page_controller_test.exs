@@ -2,7 +2,9 @@ defmodule PhxClientWeb.PageControllerTest do
   use PhxClientWeb.ConnCase
 
   test "GET /", %{conn: conn} do
-    conn = get(conn, "/")
-    assert html_response(conn, 200) =~ "Welcome to Phoenix!"
+    conn = get(build_conn(), :index)
+
+    assert conn.status == 200
+    assert String.contains?(conn.resp_body, "<title>TEberl · Sofware Developer</title>")
   end
 end
