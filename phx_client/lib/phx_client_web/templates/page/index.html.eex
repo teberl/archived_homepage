@@ -1,0 +1,28 @@
+<div class="w-full flex justify-center">
+  <div class="w-auto m-5 lg:mx-0">
+    <div
+      class="border-t border-r border-b border-l border-gray-400 lg:border-l lg:border-t lg:border-r lg:border-b lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal"
+    >
+      <div class="mb-8">
+        <div class="text-gray-800 font-bold text-xl mb-2">
+          Hi there,
+        </div>
+        <p class="text-gray-800 text-base mb-4">
+          <br />
+          my name is Thomas, my girl and i we live in Munich 🍻 🥨
+        </p>
+        <p class="text-gray-800 text-base mb-4">
+          💻 && ⌨️
+          <br />
+          Since September 2016 i work as Software Developer at <i>CHECK24</i>. We build things with <u>nodejs</u>, <u>.NET Core</u> and <u>reactjs</u>. 
+          <br />
+          I'm a Linux 🐧 Fanboy and eager student of Erlang/Elixir and OTP 
+        </p>
+        <p class="text-gray-800 text-base">
+          if ☀️ do 🧗 else ️⛷️ <br />
+          When i don't program i go to the mountains for climbing or, if we have snow ☃️, skiing 
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

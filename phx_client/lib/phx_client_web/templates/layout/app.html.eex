@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>TEberl · Sofware Developer</title>
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+  </head>
+  <body class="relative h-screen font-mono">
+    <header>
+        <nav class="flex items-center justify-between flex-wrap border-solid border-b border-gray-600 p-6">
+            <div class="flex items-center flex-shrink-0 text-gray-800 mr-6">
+              <a class="font-semibold text-xl tracking-tight" href="/">Thomas |> Eberl</a>
+            </div>
+            <div class="block lg:hidden">
+              <button id="nav-button" class="flex items-center px-3 py-2 border rounded text-gray-600 border-gray-600 hover:text-gray-800 hover:border-gray-800">
+                <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+              </button>
+            </div>
+            <div id="nav-menu" class="hidden w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+              <div class="text-sm lg:flex-grow">
+                <a href="/" class="block mt-4 lg:inline-block lg:mt-0 text-gray-600 hover:text-gray-800 mr-4">
+                  Home
+                </a>
+                <a href="/todos" class="block mt-4 lg:inline-block lg:mt-0 text-gray-600 hover:text-gray-800 mr-4">
+                  Todos
+                </a>
+              </div>
+            </div>
+          </nav>
+    </header>
+    <main role="main" class="w-full text-center">
+      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+      <%= render @view_module, @view_template, assigns %>
+    </main>
+    <footer class="absolute inset-x-0 bottom-0 mb-2 text-center text-xs text-gray-600 hover:text-gray-800">
+      <strong>v1</strong> Munich <%= get_year() %>
+    </footer>
+    <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+  </body>
+</html>

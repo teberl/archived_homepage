@@ -1,0 +1,15 @@
+.todo:hover {
+  @apply bg-gray-200;
+}
+
+.filter.active {
+  @apply text-blue-500;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.destroy.active {
+  @apply visible;
+}

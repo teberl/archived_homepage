@@ -1,0 +1,64 @@
+<div class="flex my-4">
+    <h1 class="w-full text-center">Todo List</h1>
+</div>
+<div class="container w-full px-4 sm:w-2/4 sm:m-auto ">
+    <%= f = form_for @changeset, "#", [phx_submit: :add, class: "container text-left mb-6"] %>
+        <%= if @changeset.action do %>
+            <div class="alert alert-danger mb-4" role="alert">
+                <strong class="font-bold">Holy smokes!</strong>
+                <span class="block sm:inline">Something seriously bad happened.</span>
+            </div>
+        <% end %>
+        <div class="flex mb-2">
+            <%= text_input(
+                    f, 
+                    :text,
+                    required: true,
+                    autoFocus: true,
+                    phx_focus: "focus",
+                    placeholder: "What needs to be done?",
+                    class: "text-input #{if has_errors(f, :text), do: "border-red-600"}")
+                %>
+            <%= submit(
+                "Add", 
+                class: "btn btn-blue ml-2",
+                phx_disable_with: "Saving")
+            %>
+        </div>
+        <%= error_tag(f, :text) %>
+    </form>
+    <ul class="container" phx-hook="Todos">
+        <%= for todo <- @todos do %>
+            <li class="todo flex justify-between py-2 px-1">
+                <%= checkbox(
+                    :todo,
+                    :completed,
+                    id: "todo_#{todo.id}_completed",
+                    phx_click: "toggle",
+                    phx_value: todo.id,
+                    value: todo.completed,
+                    hidden_input: false,
+                    class: "my-auto mr-1") 
+                %>
+                <%= content_tag(:span, todo.text, class: "#{if todo.completed, do: "completed"}") %>
+                <%= content_tag(:button, "❌", class: "destroy visible sm:invisible", phx_click: "delete", phx_value: todo.id) %>
+            </li>
+        <% end %>
+    </ul>
+    <div class="flex justify-between mt-4 text-xs">
+        <div class="w-1/4 text-left">
+            <%= raw(get_not_completed_text(@not_completed_count)) %>
+        </div>
+        <div class="w-2/4 ml-1 flex justify-around">
+            <%= for filter <- [:SHOW_ALL, :SHOW_ACTIVE, :SHOW_COMPLETED] do %>
+                <%= get_filter_link(@socket, filter, filter == @filter) %>
+                <%= if filter != :SHOW_COMPLETED do content_tag(:span, "|") end %>
+            <% end %>
+        </div>
+        <div class="w-1/4 text-right">
+            <%= if length(@todos) > @not_completed_count do %>
+                <%= content_tag(:button, "Clear all", phx_click: "clear_completed") %>
+            <% end %>
+        </div>
+    </div>
+</div>
