@@ -71,6 +71,6 @@ config :phoenix, :plug_init_mode, :runtime
 config :phx_client, PhxClient.Repo,
   username: "postgres",
   password: "postgres",
-  database: "homepage_dev",
+  database: "phx_client_dev",
   hostname: "localhost",
   pool_size: 10

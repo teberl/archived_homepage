@@ -14,5 +14,5 @@ config :phx_client, PhxClient.Repo,
   username: "postgres",
   password: "postgres",
   database: "phx_client_test",
-  hostname: "localhost",
+  hostname: System.get_env("DB_HOST", "localhost"),
   pool: Ecto.Adapters.SQL.Sandbox
