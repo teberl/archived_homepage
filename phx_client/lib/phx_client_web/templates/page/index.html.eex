@@ -5,22 +5,45 @@
     >
       <div class="mb-8">
         <div class="text-gray-800 font-bold text-xl mb-2">
-          Hi there,
+          Hi 👋,
         </div>
         <p class="text-gray-800 text-base mb-4">
-          <br />
-          my name is Thomas, my girl and i we live in Munich 🍻 🥨
+          Munich 🍻 🥨 based Software-Developer and mountain enthusiasts 🌄
         </p>
         <p class="text-gray-800 text-base mb-4">
-          💻 && ⌨️
+          Since September 2016 i work as Software Developer at <i>CHECK24</i>.
           <br />
-          Since September 2016 i work as Software Developer at <i>CHECK24</i>. We build things with <u>nodejs</u>, <u>.NET Core</u> and <u>reactjs</u>. 
+          We build things with
+          <a class="underline" href="https://nodejs.org/en/" target="_blank"
+            >nodejs</a
+          >,
+          <a
+            class="underline"
+            href="https://dotnet.microsoft.com/"
+            target="_blank"
+            >.NET Core</a
+          >
+          and
+          <a class="underline" href="https://reactjs.org/" target="_blank"
+            >reactjs</a
+          >.
           <br />
-          I'm a Linux 🐧 Fanboy and eager student of Erlang/Elixir and OTP 
+          I'm a Linux 🐧 Fanboy, currently on
+          <a class="underline" href="https://manjaro.org/" target="_blank"
+            >Majaro</a
+          >, and eager student of
+          <a class="underline" href="https://www.erlang.org/" target="_blank"
+            >erlang</a
+          >/<a class="underline" href="https://elixir-lang.org/" target="_blank"
+            >elixir</a
+          >
+          and OTP.
         </p>
         <p class="text-gray-800 text-base">
-          if ☀️ do 🧗 else ️⛷️ <br />
-          When i don't program i go to the mountains for climbing or, if we have snow ☃️, skiing 
+          <code>if ☃️ do️ ⛷ else 🧗 end</code>
+          <br />
+          When i don't program i go to the mountains for climbing or, if we have
+          snow, skiing.
         </p>
       </div>
     </div>

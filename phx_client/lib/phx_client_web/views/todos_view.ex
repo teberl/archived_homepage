@@ -12,7 +12,6 @@ defmodule PhxClientWeb.TodosView do
   end
 
   def get_filter_link(socket, filter, isActive) do
-    IO.inspect(isActive)
     url = Routes.live_path(socket, PhxClientWeb.TodosLive, filter: filter)
 
     live_link(get_filter_text(filter),
