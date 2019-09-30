@@ -5,10 +5,12 @@
     >
       <div class="mb-8">
         <div class="text-gray-800 font-bold text-xl mb-2">
-          Hi 👋,
+          👋 Hi there,
         </div>
         <p class="text-gray-800 text-base mb-4">
-          Munich 🍻 🥨 based Software-Developer and mountain enthusiasts 🌄
+          my name is Thomas and i'm a Munich based Software-Developer and mountain enthusiasts
+          <br>
+          🍻 🥨 🌄
         </p>
         <p class="text-gray-800 text-base mb-4">
           Since September 2016 i work as Software Developer at <i>CHECK24</i>.
@@ -31,16 +33,16 @@
           I'm a Linux 🐧 Fanboy, currently on
           <a class="underline" href="https://manjaro.org/" target="_blank"
             >Majaro</a
-          >, and eager student of
+          >, and a eager student of
           <a class="underline" href="https://www.erlang.org/" target="_blank"
             >erlang</a
           >/<a class="underline" href="https://elixir-lang.org/" target="_blank"
             >elixir</a
           >
-          and OTP.
+          and OTP and the BEAM in general.
         </p>
         <p class="text-gray-800 text-base">
-          <code>if ☃️ do️ ⛷ else 🧗 end</code>
+          <code>if ❄️ do️ ⛷ else 🧗 end</code>
           <br />
           When i don't program i go to the mountains for climbing or, if we have
           snow, skiing.

@@ -10,9 +10,20 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :phx_client, PhxClientWeb.Endpoint,
-  http: [:inet6, port: System.get_env("PORT") || 4000],
-  url: [host: "example.com", port: 80],
-  cache_static_manifest: "priv/static/cache_manifest.json"
+  http: [:inet6, port: 4000],
+  # force_ssl: [hsts: true],
+  https: [
+    :inet6,
+    port: 4001,
+    cipher_suite: :strong,
+    keyfile: "/etc/letsencrypt/live/teberl.de/privkey.pem",
+    certfile: "/etc/letsencrypt/live/teberl.de/cert.pem"
+  ],
+  url: [host: host, port: ssl_port],
+  check_origin: ["//localhost", "//teberl.de"],
+  cache_static_manifest: "priv/static/cache_manifest.json",
+  root: ".",
+  server: true
 
 # Do not print debug messages in production
 config :logger, level: :info
