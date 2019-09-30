@@ -3,8 +3,8 @@ name: PhxClient CI
 on: push
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  test:
+    runs-on: ubuntu-18.04
 
     container:
       image: elixir:1.9.1-slim
@@ -14,15 +14,14 @@ jobs:
     services:
       postgres:
         image: postgres
-        ports:
-          - 5423:5432
+        ports: ["5432:5432"]
         env:
-          POSTGRES_PASSWORD: postgres
           POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@master
       - name: Install Dependencies
         run: |
           cd phx_client
@@ -33,5 +32,30 @@ jobs:
         run: |
           cd phx_client
           mix test
-        env:
-          DB_HOST: postgres
+  # release:
+  #   name: Create Release
+  #   needs: test
+  #   container:
+  #     image: elixir:1.9.1-slim
+  #     env:
+  #       MIX_ENV: prod
+  #   steps:
+  #     - uses: actions/checkout@master
+  #     - name: Initial setup
+  #     - run: |
+  #         cd phx_client
+  #         mix deps.get --only prod
+  #         MIX_ENV=prod mix compile
+  #     - name: Compile assets
+  #       run: |
+  #         cd phx_client
+  #         npm run deploy --prefix ./assets
+  #         mix phx.digest
+  #     - name: Create Release
+  #     - run: |
+  #         cd phx_client
+  #         mix release
+  #     - uses: actions/upload-artifact@master
+  #       with:
+  #         name: phx_client
+  #         path: release
