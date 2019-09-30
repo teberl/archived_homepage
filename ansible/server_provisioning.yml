@@ -119,29 +119,6 @@
           - /var/lib/postgresql/data
         # healthcheck: ...
 
-    # Letsencrypt
-    - name: Add "certbot" repository from ppa
-      apt_repository:
-        repo: ppa:certbot/certbot
-
-    - name: Update repositories cache and install "certbot"
-      apt:
-        name: certbot
-        update_cache: yes
-
-    - name: UFW - Allow SSH connections
-      ufw:
-        rule: allow
-        port: "80"
-
-    - name: Run Certbot to generate the certificate
-      shell: "sudo certbot certonly --standalone --preferred-challenges http --noninteractive --agree-tos -m mail@teberl.de -d teberl.de -d www.teberl.de"
-
-    - name: UFW - Deny SSH connections
-      ufw:
-        rule: deny
-        port: "80"
-
     # Firewall Settings
     - name: UFW - Allow SSH connections
       ufw:

@@ -33,15 +33,4 @@ defmodule PhxClientWeb.TodosView do
       :SHOW_COMPLETED -> " Completed"
     end
   end
-
-  # def filter_path(filter, list_id) do
-  #   filter_query = case filter do
-  #     :SHOW_ALL -> "all"
-  #     :SHOW_ACTIVE -> "active"
-  #     :SHOW_COMPLETED -> "completed"
-  #     _ -> "all"
-  #   end
-
-  #   Routes.todos_url(PhxClientWeb.Endpoint, :todo_list, list_id, filter: filter_query)
-  # end
 end
