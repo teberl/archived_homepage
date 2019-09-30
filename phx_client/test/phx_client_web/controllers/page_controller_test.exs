@@ -1,7 +1,7 @@
 defmodule PhxClientWeb.PageControllerTest do
   use PhxClientWeb.ConnCase
 
-  test "GET /", %{conn: conn} do
+  test "GET /", %{conn: _conn} do
     conn = get(build_conn(), :index)
 
     assert conn.status == 200

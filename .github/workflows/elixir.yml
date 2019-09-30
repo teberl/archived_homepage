@@ -32,6 +32,8 @@ jobs:
         run: |
           cd phx_client
           mix test
+        env:
+          DB_HOST: postgres
   # release:
   #   name: Create Release
   #   needs: test
