@@ -1,0 +1,53 @@
+---
+- hosts: all
+  become: true
+  remote_user: root
+  gather_facts: false
+  vars:
+    mail: mail@teberl.de
+    domain_one: teberl.de
+    domain_two: ww.teberl.de
+
+  tasks:
+    # Add Letsencrypt container
+    - name: Pull Docker image
+      docker_image:
+        name: "letsencrypt:latest"
+        source: pull
+
+    - name: Create container
+      docker_container:
+        name: letsencrypt
+        image: "letsencrypt:latest"
+        pull:
+        state: started
+        restart_policy: unless-stopped
+        exposed_ports:
+          - 443:443
+          - 80:80
+        published_ports: 127.0.0.1:5432:5432
+        volumes:
+          - /var/lib/postgresql/data
+
+    # Letsencrypt
+    - name: Add "certbot" repository from ppa
+      apt_repository:
+        repo: ppa:certbot/certbot
+
+    - name: Update repositories cache and install "certbot"
+      apt:
+        name: certbot
+        update_cache: yes
+
+    - name: UFW - Allow SSH connections
+      ufw:
+        rule: allow
+        port: "80"
+
+    - name: Run Certbot to generate the certificate
+      shell: "sudo certbot certonly --standalone --preferred-challenges http --noninteractive --agree-tos -m {{ mail }} -d {{ domain_one }} -d {{ domain_two }}"
+
+    - name: UFW - Deny SSH connections
+      ufw:
+        rule: deny
+        port: "80"
